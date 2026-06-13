@@ -93,6 +93,18 @@ export const portfolio = [
     url: 'https://trustscore.app',
   },
   {
+    id: 'southeast-mowing',
+    title: 'Southeast Mowing & Property Maintenance',
+    tag: 'Business Website',
+    description: 'A professional business website built for a local Melbourne mowing and property maintenance company. Clean, fast, and built to generate enquiries.',
+    image: null,
+    placeholder: 'SM',
+    color: '#1a2e1a',
+    accent: '#4ade80',
+    tech: ['Web Design', 'Mobile Responsive', 'SEO'],
+    url: 'https://southeastmowingandpropertymaintenance.com',
+  },
+  {
     id: 'listing-life',
     title: 'StoryNest AI',
     tag: 'AI Creative Platform',
