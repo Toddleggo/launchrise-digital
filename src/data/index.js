@@ -66,7 +66,7 @@ export const portfolio = [
     color: '#1a3a2a',
     accent: '#4ade80',
     tech: ['React', 'AI/Claude', 'Supabase'],
-    url: '#',
+    url: 'https://sobercompanion.chat',
   },
   {
     id: 'legaldraft-ai',
@@ -90,7 +90,7 @@ export const portfolio = [
     color: '#2a1a1a',
     accent: '#C9A84C',
     tech: ['React', 'AI/Claude', 'Vite'],
-    url: '#',
+    url: 'https://trustscore.app',
   },
   {
     id: 'listing-life',
