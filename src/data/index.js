@@ -78,7 +78,7 @@ export const portfolio = [
     color: '#1a1a3a',
     accent: '#818cf8',
     tech: ['React', 'AI/Claude', 'Supabase'],
-    url: '#',
+    url: 'https://legaldraftai.com',
   },
   {
     id: 'trustscore',
@@ -94,15 +94,15 @@ export const portfolio = [
   },
   {
     id: 'listing-life',
-    title: 'Listing Life',
-    tag: 'Productivity App',
-    description: 'A productivity-style app built to help online sellers manage their listings, track items, and streamline their selling workflows.',
+    title: 'StoryNest AI',
+    tag: 'AI Creative Platform',
+    description: 'An AI-powered creative platform built to help users generate, manage and develop story-driven content and ideas.',
     image: null,
-    placeholder: 'LL',
+    placeholder: 'SN',
     color: '#1a2a3a',
     accent: '#38bdf8',
-    tech: ['React', 'Supabase', 'Vite'],
-    url: '#',
+    tech: ['React', 'AI/Claude', 'Replit'],
+    url: 'https://storynestai.replit.app',
   },
 ]
 
