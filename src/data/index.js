@@ -116,6 +116,18 @@ export const portfolio = [
     tech: ['React', 'AI/Claude', 'Replit'],
     url: 'https://storynestai.replit.app',
   },
+  {
+    id: 'salon-showcase',
+    title: 'Salon Showcase',
+    tag: 'Hair & Beauty Website',
+    description: 'A stylish, modern website built for a hair salon — showcasing services, gallery, pricing, and booking in an elegant design built to attract clients.',
+    image: null,
+    placeholder: 'SS',
+    color: '#2a1a2a',
+    accent: '#e879f9',
+    tech: ['Web Design', 'Mobile Responsive', 'Replit'],
+    url: 'https://salon-showcase.toddleggo86.replit.app',
+  },
 ]
 
 export const pricing = [
