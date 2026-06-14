@@ -114,7 +114,7 @@ export const portfolio = [
     color: '#2a1a2a',
     accent: '#e879f9',
     tech: ['Web Design', 'Mobile Responsive', 'Replit'],
-    url: 'https://salon-showcase.toddleggo86.replit.app',
+    url: 'https://salon-showcase.replit.app',
   },
   {
     id: 'todds-home-garden',
@@ -126,7 +126,7 @@ export const portfolio = [
     color: '#1a2e1a',
     accent: '#84cc16',
     tech: ['Web Design', 'Mobile Responsive', 'Replit'],
-    url: 'https://replit.com/@toddleggo86/Todds-Human-Excavator',
+    url: 'https://todds-human-excavator.replit.app',
   },
 ]
 
