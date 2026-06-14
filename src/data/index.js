@@ -81,18 +81,6 @@ export const portfolio = [
     url: 'https://legaldraftai.com',
   },
   {
-    id: 'trustscore',
-    title: 'TrustScore',
-    tag: 'AI Verification Tool',
-    description: 'An AI-powered product claim checker that helps users judge whether online product claims sound trustworthy or exaggerated.',
-    image: null,
-    placeholder: 'TS',
-    color: '#2a1a1a',
-    accent: '#C9A84C',
-    tech: ['React', 'AI/Claude', 'Vite'],
-    url: 'https://trustscore.app',
-  },
-  {
     id: 'southeast-mowing',
     title: 'Southeast Mowing & Property Maintenance',
     tag: 'Business Website',
@@ -127,6 +115,18 @@ export const portfolio = [
     accent: '#e879f9',
     tech: ['Web Design', 'Mobile Responsive', 'Replit'],
     url: 'https://salon-showcase.toddleggo86.replit.app',
+  },
+  {
+    id: 'todds-home-garden',
+    title: "Todd's Home & Garden",
+    tag: 'Garden & Landscaping Website',
+    description: "A professional website built for a Southeast Melbourne landscaping and garden maintenance business. Bold design, clear services, and built to generate quote enquiries.",
+    image: null,
+    placeholder: 'HG',
+    color: '#1a2e1a',
+    accent: '#84cc16',
+    tech: ['Web Design', 'Mobile Responsive', 'Replit'],
+    url: 'https://replit.com/@toddleggo86/Todds-Human-Excavator',
   },
 ]
 
