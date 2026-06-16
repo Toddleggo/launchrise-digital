@@ -42,7 +42,37 @@ export default function QuoteForm() {
     setSubmitting(true)
     setError(null)
     try {
-      await submitQuote(data)
+      // Send email via formsubmit.co (primary delivery — no account needed)
+      const emailBody = {
+        _subject: `New Quote Request from ${data.fullName} — ${data.projectType}`,
+        _template: 'table',
+        'Full Name': data.fullName,
+        'Email': data.email,
+        'Phone': data.phone || '—',
+        'Business Name': data.businessName || '—',
+        'Project Type': data.projectType,
+        'Project Description': data.ideaDescription,
+        'Features Wanted': data.featuresWanted,
+        'Needs User Logins': data.needsLogins,
+        'Needs Payments': data.needsPayments,
+        'Needs AI Features': data.needsAI,
+        'Similar Examples': data.similarExamples || '—',
+        'Budget Range': data.budgetRange,
+        'Ideal Timeline': data.idealTimeline,
+        'Anything Else': data.anythingElse || '—',
+      }
+
+      const emailRes = await fetch('https://formsubmit.co/ajax/launchrisedigital@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(emailBody),
+      })
+
+      if (!emailRes.ok) throw new Error('Email delivery failed')
+
+      // Best-effort save to Supabase (don't block success on this)
+      submitQuote(data).catch(() => {})
+
       setSubmitted(true)
     } catch (err) {
       setError('Something went wrong. Please email us directly at launchrisedigital@gmail.com')
