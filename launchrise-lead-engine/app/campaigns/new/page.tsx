@@ -37,12 +37,11 @@ export default function NewCampaignPage() {
         </label>
 
         <label>
-          SMS template (under 160 chars, must include "STOP" opt-out)
+          SMS template (optional — leave blank to send email only. Under 160 chars, must include "STOP" opt-out)
           <textarea
             value={form.sms_template}
             onChange={set("sms_template")}
             maxLength={160}
-            required
             style={inputStyle}
           />
           <small>{form.sms_template.length}/160</small>

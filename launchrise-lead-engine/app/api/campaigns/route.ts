@@ -14,21 +14,26 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   const body = await req.json();
 
-  if (!body.category || !body.sms_template || !body.email_subject || !body.email_body) {
+  if (!body.category || !body.email_subject || !body.email_body) {
     return NextResponse.json(
-      { error: "category, sms_template, email_subject, email_body are required" },
+      { error: "category, email_subject, email_body are required" },
       { status: 400 }
     );
   }
 
-  if (body.sms_template.length > 160) {
-    return NextResponse.json({ error: "sms_template must be under 160 chars" }, { status: 400 });
-  }
-  if (!/stop/i.test(body.sms_template)) {
-    return NextResponse.json(
-      { error: "sms_template must include an opt-out instruction, e.g. 'Reply STOP to opt out'" },
-      { status: 400 }
-    );
+  // sms_template is optional — leave it blank to run this campaign email-only
+  // (e.g. before Twilio is set up). If provided, it must still meet the
+  // compliance requirements below, no exceptions.
+  if (body.sms_template) {
+    if (body.sms_template.length > 160) {
+      return NextResponse.json({ error: "sms_template must be under 160 chars" }, { status: 400 });
+    }
+    if (!/stop/i.test(body.sms_template)) {
+      return NextResponse.json(
+        { error: "sms_template must include an opt-out instruction, e.g. 'Reply STOP to opt out'" },
+        { status: 400 }
+      );
+    }
   }
   if (!/\{unsubscribe_link\}/.test(body.email_body)) {
     return NextResponse.json(
@@ -41,7 +46,7 @@ export async function POST(req: NextRequest) {
     .from("campaigns")
     .insert({
       category: body.category,
-      sms_template: body.sms_template,
+      sms_template: body.sms_template ?? null,
       email_subject: body.email_subject,
       email_body: body.email_body,
       demo_site_url: body.demo_site_url ?? null,

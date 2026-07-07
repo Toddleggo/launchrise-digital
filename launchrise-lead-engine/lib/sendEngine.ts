@@ -20,6 +20,14 @@ function getTwilioClient(): ReturnType<typeof twilio> {
 
 const RATE_LIMIT_MS = 4000; // ~1 send every 4s so 100 leads takes ~6-7 min, not instant
 
+// SMS is optional — if Twilio isn't set up yet, run email-only rather than
+// erroring out on every lead that has a phone number.
+function smsConfigured(): boolean {
+  return Boolean(
+    process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN && process.env.TWILIO_FROM_NUMBER
+  );
+}
+
 interface RunResult {
   processed: number;
   sent: number;
@@ -90,7 +98,7 @@ export async function runSendBatch(batchSize = 100): Promise<RunResult> {
         await sendEmail(lead, campaign, unsubscribeLink);
         await logOutreach(lead.id, "email", campaign.id);
       }
-      if (lead.phone) {
+      if (lead.phone && smsConfigured() && campaign.sms_template) {
         await sendSms(lead, campaign);
         await logOutreach(lead.id, "sms", campaign.id);
       }
