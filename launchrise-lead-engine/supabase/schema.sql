@@ -59,3 +59,12 @@ create index if not exists idx_dnc_phone on do_not_contact(phone);
 -- Prevent messaging the same business across categories once contacted:
 -- outreach_log + leads.status already covers this since sending engine checks
 -- "has this lead_id ever been sent to" before sending again.
+
+-- The app only ever talks to Supabase with the service role key (which
+-- bypasses RLS), never a public anon key. RLS is enabled anyway with no
+-- policies, so these tables default-deny for anything that isn't the
+-- service role — defense in depth if the anon key is ever added later.
+alter table leads enable row level security;
+alter table campaigns enable row level security;
+alter table outreach_log enable row level security;
+alter table do_not_contact enable row level security;

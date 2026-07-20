@@ -5,10 +5,13 @@ import { supabaseAdmin } from "@/lib/supabase";
 // POST { category: "electrician", location: "Melbourne VIC", maxResults?: 200 }
 export async function POST(req: NextRequest) {
   try {
-    const { category, location, maxResults } = await req.json();
-    if (!category || !location) {
+    const { category: rawCategory, location, maxResults } = await req.json();
+    if (!rawCategory || !location) {
       return NextResponse.json({ error: "category and location are required" }, { status: 400 });
     }
+    // Normalized so it always matches a campaign's category exactly, regardless
+    // of how either one was typed in.
+    const category = rawCategory.trim().toLowerCase();
 
     const sourced = await sourceLeads(category, location, maxResults ?? 200);
 

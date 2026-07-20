@@ -164,6 +164,10 @@ async function sendEmail(lead: any, campaign: any, unsubscribeLink: string) {
     replyTo: process.env.REPLY_TO_EMAIL,
     headers: {
       "List-Unsubscribe": `<${unsubscribeLink}>`,
+      // Required alongside List-Unsubscribe for Gmail/Yahoo's one-click
+      // unsubscribe button (RFC 8058) — without it, bulk senders are more
+      // likely to get filtered to spam.
+      "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
     },
   });
 }

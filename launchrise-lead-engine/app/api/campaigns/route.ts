@@ -45,7 +45,10 @@ export async function POST(req: NextRequest) {
   const { data, error } = await supabaseAdmin
     .from("campaigns")
     .insert({
-      category: body.category,
+      // Normalized to match how leads.category is stored (see
+      // app/api/leads/source/route.ts) so campaign matching never silently
+      // misses on casing.
+      category: body.category.trim().toLowerCase(),
       sms_template: body.sms_template ?? null,
       email_subject: body.email_subject,
       email_body: body.email_body,
