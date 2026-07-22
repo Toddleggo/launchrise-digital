@@ -1,0 +1,97 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0d0f12;
+  --card: #16191e;
+  --border: #262b33;
+  --text: #e8eaed;
+  --muted: #8a919c;
+  --accent: #4f8cff;
+  --green: #3ecf8e;
+  --red: #ff5c5c;
+  --amber: #ffb84d;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 32px 20px 80px; }
+
+h1 { font-size: 26px; font-weight: 600; }
+h2 { font-size: 17px; font-weight: 600; margin-bottom: 12px; }
+h3 { font-size: 14px; font-weight: 600; }
+
+.topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; }
+.tabs { display: flex; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
+.tab {
+  padding: 8px 18px; border: 1px solid var(--border); background: transparent;
+  color: var(--muted); cursor: pointer; border-radius: 6px; font-size: 13px;
+}
+.tab.active { border-color: var(--accent); color: var(--accent); background: var(--card); }
+
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+.grid { display: grid; gap: 16px; }
+.grid-4 { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+
+.stat { text-align: left; }
+.stat .num { font-size: 28px; font-weight: 700; }
+.stat .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+.btn {
+  padding: 9px 16px; border: none; border-radius: 6px; background: var(--accent);
+  color: #fff; cursor: pointer; font-size: 13px; font-weight: 500;
+}
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn.secondary { background: transparent; border: 1px solid var(--border); color: var(--text); }
+.btn.danger { background: var(--red); }
+.btn.success { background: var(--green); color: #08110d; }
+.btn.small { padding: 5px 10px; font-size: 12px; }
+
+.input, .textarea, select.input {
+  width: 100%; padding: 9px 12px; background: var(--bg); border: 1px solid var(--border);
+  border-radius: 6px; color: var(--text); font-size: 13px; font-family: inherit;
+}
+.textarea { min-height: 72px; resize: vertical; }
+.label { display: block; color: var(--muted); font-size: 12px; margin: 12px 0 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; color: var(--muted); font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+td { padding: 9px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:hover td { background: rgba(255,255,255,0.02); }
+.table-wrap { overflow-x: auto; }
+
+.pill { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+.pill.new { background: #26313f; color: #9dc1ff; }
+.pill.queued { background: #3d3320; color: var(--amber); }
+.pill.sent { background: #1f3a4d; color: #6fd3ff; }
+.pill.replied { background: #2c2440; color: #c3a8ff; }
+.pill.interested { background: #143526; color: var(--green); }
+.pill.not_interested, .pill.closed { background: #2a2d33; color: var(--muted); }
+.pill.dnc, .pill.angry { background: #3f2222; color: var(--red); }
+.pill.question { background: #3d3320; color: var(--amber); }
+.pill.unclear { background: #2a2d33; color: var(--muted); }
+
+.muted { color: var(--muted); }
+.error { color: var(--red); font-size: 13px; margin-top: 8px; white-space: pre-wrap; }
+.ok { color: var(--green); font-size: 13px; margin-top: 8px; }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.spacer { flex: 1; }
+.mt { margin-top: 14px; }
+
+.kill-switch {
+  display: flex; align-items: center; gap: 14px; padding: 16px 20px;
+  border-radius: 8px; border: 1px solid var(--border); margin-bottom: 16px;
+}
+.kill-switch.paused { border-color: var(--red); background: rgba(255,92,92,0.06); }
+.kill-switch.live { border-color: var(--green); background: rgba(62,207,142,0.05); }
+
+.login { max-width: 340px; margin: 15vh auto 0; }
+.login .input { margin-bottom: 10px; }
+
+.draft { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 12px; margin-top: 10px; }
