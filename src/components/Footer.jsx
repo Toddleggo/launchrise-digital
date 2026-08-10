@@ -38,7 +38,7 @@ export default function Footer() {
             <p className="section-label mb-6">Products</p>
             <ul className="space-y-3">
               <li>
-                <Link to="/mind-vault" className="font-body text-sm text-white/50 hover:text-gold-DEFAULT transition-colors">Mind Vault</Link>
+                <Link to="/alter-mind" className="font-body text-sm text-white/50 hover:text-gold-DEFAULT transition-colors">Alter Mind</Link>
                 <span className="font-mono text-xs text-white/20 ml-2">ADHD</span>
               </li>
               <li>

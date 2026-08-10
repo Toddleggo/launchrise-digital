@@ -14,7 +14,7 @@ const links = [
 ]
 
 const products = [
-  { to: '/mind-vault', label: 'Mind Vault', tag: 'ADHD Platform' },
+  { to: '/alter-mind', label: 'Alter Mind', tag: 'ADHD Platform' },
   { to: '/sober-companion', label: 'Sober Companion', tag: 'Recovery App' },
 ]
 
