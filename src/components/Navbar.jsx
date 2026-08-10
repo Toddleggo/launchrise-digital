@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -13,17 +13,10 @@ const links = [
   { to: '/contact', label: 'Contact' },
 ]
 
-const products = [
-  { to: '/alter-mind', label: 'Alter Mind', tag: 'ADHD Platform' },
-  { to: '/sober-companion', label: 'Sober Companion', tag: 'Recovery App' },
-]
-
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const [productsOpen, setProductsOpen] = useState(false)
   const location = useLocation()
-  const dropdownRef = useRef(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -33,25 +26,12 @@ export default function Navbar() {
 
   useEffect(() => {
     setMenuOpen(false)
-    setProductsOpen(false)
   }, [location])
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
-
-  useEffect(() => {
-    function handleClickOutside(e) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setProductsOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
-
-  const isProductPage = products.some(p => location.pathname === p.to)
 
   return (
     <>
@@ -86,54 +66,6 @@ export default function Navbar() {
                 {label}
               </Link>
             ))}
-
-            {/* Products dropdown */}
-            <div className="relative" ref={dropdownRef}>
-              <button
-                onClick={() => setProductsOpen(!productsOpen)}
-                className={`font-body text-sm tracking-wide transition-all duration-300 hover:text-gold-DEFAULT flex items-center gap-1.5 ${
-                  isProductPage ? 'text-gold-DEFAULT' : 'text-white/70'
-                }`}
-              >
-                Products
-                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className={`transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`}>
-                  <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-
-              <AnimatePresence>
-                {productsOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-56 py-2"
-                    style={{
-                      background: 'rgba(17, 17, 17, 0.98)',
-                      backdropFilter: 'blur(20px)',
-                      border: '1px solid rgba(255, 255, 255, 0.08)',
-                      boxShadow: '0 20px 60px rgba(0, 0, 0, 0.6)',
-                    }}
-                  >
-                    {products.map(({ to, label, tag }) => (
-                      <Link
-                        key={to}
-                        to={to}
-                        className={`block px-5 py-3 transition-all duration-200 hover:bg-white/5 ${
-                          location.pathname === to ? 'bg-white/5' : ''
-                        }`}
-                      >
-                        <span className={`font-body text-sm block ${
-                          location.pathname === to ? 'text-gold-DEFAULT' : 'text-white/80'
-                        }`}>{label}</span>
-                        <span className="font-mono text-xs text-white/30 tracking-wider uppercase">{tag}</span>
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
           </div>
 
           {/* CTA + Hamburger */}
@@ -192,31 +124,10 @@ export default function Navbar() {
                 </motion.div>
               ))}
 
-              {/* Products in mobile menu */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: links.length * 0.06, duration: 0.4 }}
-                className="flex flex-col items-center gap-2 pt-2"
-              >
-                <span className="font-mono text-xs text-white/30 tracking-wider uppercase mb-2">Products</span>
-                {products.map(({ to, label }) => (
-                  <Link
-                    key={to}
-                    to={to}
-                    className={`font-display text-2xl font-medium transition-all hover:text-gold-DEFAULT ${
-                      location.pathname === to ? 'gold-text' : 'text-white/70'
-                    }`}
-                  >
-                    {label}
-                  </Link>
-                ))}
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: (links.length + 1) * 0.06 + 0.1 }}
+                transition={{ delay: links.length * 0.06 + 0.1 }}
               >
                 <Link to="/quote" className="btn-gold mt-4">
                   Get a Quote
