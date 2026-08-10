@@ -12,6 +12,8 @@ import About from './pages/About'
 import FAQ from './pages/FAQ'
 import Quote from './pages/Quote'
 import Contact from './pages/Contact'
+import MindVault from './pages/MindVault'
+import SoberCompanion from './pages/SoberCompanion'
 import LeadDashboard from './components/LeadDashboard'
 
 function ScrollToTop() {
@@ -53,6 +55,8 @@ function AppInner() {
           <Route path="/faq" element={<AnimatedRoute><FAQ /></AnimatedRoute>} />
           <Route path="/quote" element={<AnimatedRoute><Quote /></AnimatedRoute>} />
           <Route path="/contact" element={<AnimatedRoute><Contact /></AnimatedRoute>} />
+          <Route path="/mind-vault" element={<AnimatedRoute><MindVault /></AnimatedRoute>} />
+          <Route path="/sober-companion" element={<AnimatedRoute><SoberCompanion /></AnimatedRoute>} />
           <Route path="/admin" element={<LeadDashboard />} />
         </Routes>
       </AnimatePresence>

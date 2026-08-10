@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
 
 export default function Footer() {
   return (
@@ -7,7 +6,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 border border-gold-DEFAULT flex items-center justify-center">
                 <span className="gold-text font-display font-bold text-sm">LR</span>
@@ -31,6 +30,21 @@ export default function Footer() {
                   <Link to="/services" className="font-body text-sm text-white/50 hover:text-gold-DEFAULT transition-colors">{s}</Link>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          {/* Products */}
+          <div>
+            <p className="section-label mb-6">Products</p>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/mind-vault" className="font-body text-sm text-white/50 hover:text-gold-DEFAULT transition-colors">Mind Vault</Link>
+                <span className="font-mono text-xs text-white/20 ml-2">ADHD</span>
+              </li>
+              <li>
+                <Link to="/sober-companion" className="font-body text-sm text-white/50 hover:text-gold-DEFAULT transition-colors">Sober Companion</Link>
+                <span className="font-mono text-xs text-white/20 ml-2">Recovery</span>
+              </li>
             </ul>
           </div>
 
@@ -61,7 +75,7 @@ export default function Footer() {
             © {new Date().getFullYear()} LaunchRise Digital. Melbourne, Australia. All rights reserved.
           </p>
           <p className="section-label text-xs opacity-40">
-            Websites · Web Apps · AI Tools
+            Websites · Web Apps · AI Tools · Products
           </p>
         </div>
       </div>
