@@ -11,6 +11,7 @@ const links = [
   { to: '/about', label: 'About' },
   { to: '/faq', label: 'FAQ' },
   { to: '/contact', label: 'Contact' },
+  { to: '/partners', label: 'MODC+' },
 ]
 
 export default function Navbar() {
