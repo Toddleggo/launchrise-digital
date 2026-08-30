@@ -45,6 +45,7 @@ export default function Footer() {
                 { to: '/faq', label: 'FAQ' },
                 { to: '/quote', label: 'Request a Quote' },
                 { to: '/contact', label: 'Contact' },
+                { to: '/partners', label: 'MODC+ Partners' },
               ].map(({ to, label }) => (
                 <li key={to}>
                   <Link to={to} className="font-body text-sm text-white/50 hover:text-gold-DEFAULT transition-colors">{label}</Link>

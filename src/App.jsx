@@ -12,6 +12,7 @@ import About from './pages/About'
 import FAQ from './pages/FAQ'
 import Quote from './pages/Quote'
 import Contact from './pages/Contact'
+import Partners from './pages/Partners'
 import LeadDashboard from './components/LeadDashboard'
 
 function ScrollToTop() {
@@ -53,6 +54,7 @@ function AppInner() {
           <Route path="/faq" element={<AnimatedRoute><FAQ /></AnimatedRoute>} />
           <Route path="/quote" element={<AnimatedRoute><Quote /></AnimatedRoute>} />
           <Route path="/contact" element={<AnimatedRoute><Contact /></AnimatedRoute>} />
+          <Route path="/partners" element={<AnimatedRoute><Partners /></AnimatedRoute>} />
           <Route path="/admin" element={<LeadDashboard />} />
         </Routes>
       </AnimatePresence>
