@@ -11,7 +11,7 @@ Not "will AI become conscious?" Not "will robots take over?"
 
 *Can I pay the rent if something happens to my job?*
 
-That's the real fear under most of the AI anxiety I hear about. It's not abstract. It's the mortgage, the kids' school shoes, the car loan, the groceries that cost more every month. It's the knot in your stomach when you look at your bank balance two days before payday.
+That's the real fear under most of the AI anxiety out there. It's not abstract. It's the mortgage, the kids' school shoes, the car loan, the groceries that cost more every month. It's the knot in your stomach when you look at your bank balance two days before payday.
 
 So this chapter isn't about AI at all, really. It's about making your household strong enough that whatever AI does — slow, steady or fast — you have *time* and *choices*.
 
