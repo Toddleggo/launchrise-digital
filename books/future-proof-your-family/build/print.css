@@ -1,0 +1,157 @@
+/* Future-Proof Your Family — KDP 6 x 9 in print interior */
+
+@font-face { font-family: "Book"; src: url("file://FONTDIR/EBGaramond-Regular.ttf"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Book"; src: url("file://FONTDIR/EBGaramond-Italic.ttf"); font-weight: 400; font-style: italic; }
+@font-face { font-family: "Book"; src: url("file://FONTDIR/EBGaramond-SemiBold.ttf"); font-weight: 600 700; font-style: normal; }
+@font-face { font-family: "Book"; src: url("file://FONTDIR/EBGaramond-SemiBoldItalic.ttf"); font-weight: 600 700; font-style: italic; }
+@font-face { font-family: "LibreFranklinX"; src: url("file://FONTDIR/LibreFranklin-Regular.ttf"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "LibreFranklinX"; src: url("file://FONTDIR/LibreFranklin-Italic.ttf"); font-weight: 400; font-style: italic; }
+@font-face { font-family: "LibreFranklinX"; src: url("file://FONTDIR/LibreFranklin-SemiBold.ttf"); font-weight: 600; font-style: normal; }
+@font-face { font-family: "LibreFranklinX"; src: url("file://FONTDIR/LibreFranklin-Bold.ttf"); font-weight: 700; font-style: normal; }
+
+/* ---------- Page geometry ---------- */
+@page {
+  size: 6in 9in;
+  margin-top: 0.72in;
+  margin-bottom: 0.78in;
+}
+@page :right {
+  margin-left: 0.82in;   /* inside (gutter) */
+  margin-right: 0.6in;   /* outside */
+  @top-right { content: string(chaptitle, first-except); font-family: "LibreFranklinX"; font-size: 6.6pt; letter-spacing: 0.12em; text-transform: uppercase; color: #444; vertical-align: bottom; padding-bottom: 10pt; }
+  @bottom-right { content: counter(page); font-family: "Book"; font-size: 9.5pt; vertical-align: top; padding-top: 12pt; }
+}
+@page :left {
+  margin-left: 0.6in;
+  margin-right: 0.82in;
+  @top-left { content: string(booktitle, first-except); font-family: "LibreFranklinX"; font-size: 6.6pt; letter-spacing: 0.12em; text-transform: uppercase; color: #444; vertical-align: bottom; padding-bottom: 10pt; }
+  @bottom-left { content: counter(page); font-family: "Book"; font-size: 9.5pt; vertical-align: top; padding-top: 12pt; }
+}
+/* Front matter: no running heads; roman folios only where a page is numbered */
+@page front {
+  @top-left { content: none; } @top-right { content: none; }
+  @bottom-left { content: none; } @bottom-right { content: none; }
+}
+@page frontnum:left {
+  @top-left { content: none; }
+  @bottom-left { content: counter(page, lower-roman); }
+}
+@page frontnum:right {
+  @top-right { content: none; }
+  @bottom-right { content: counter(page, lower-roman); }
+}
+@page blank { @top-left { content: none; } @top-right { content: none; } @bottom-left { content: none; } @bottom-right { content: none; } }
+
+html { font-family: "Book", serif; font-size: 11.4pt; line-height: 1.38; color: #111; hyphens: auto; }
+body { margin: 0; }
+
+p { margin: 0; text-align: justify; text-indent: 1.15em; orphans: 2; widows: 2; hyphenate-limit-chars: 6 3 3; }
+h1 + p, h2 + p, h3 + p, .chapter-open + p, p:first-child, ul + p, ol + p, table + p, div + p, blockquote + p, hr + p { text-indent: 0; }
+
+em { font-style: italic; }
+strong { font-weight: 600; }
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Front matter ---------- */
+.halftitle { page: front; break-after: right; padding-top: 2.1in; text-align: center; }
+.halftitle p { text-align: center; text-indent: 0; font-family: "Book"; font-size: 17pt; letter-spacing: 0.04em; }
+
+.titlepage { page: front; break-before: right; break-after: page; text-align: center; padding-top: 1.6in; }
+.titlepage p { text-align: center; text-indent: 0; }
+.tp-title { display: block; font-family: "Book"; font-size: 30pt; line-height: 1.1; letter-spacing: 0.01em; }
+.tp-subtitle { display: block; font-family: "Book"; font-style: italic; font-size: 13pt; line-height: 1.35; margin: 18pt 0.3in 0; }
+.tp-author { display: block; font-family: "LibreFranklinX"; font-weight: 600; font-size: 10pt; letter-spacing: 0.22em; text-transform: uppercase; margin-top: 2.4in; }
+
+.copyright { page: front; break-after: right; padding-top: 3.6in; font-size: 8.6pt; line-height: 1.42; }
+.copyright p { text-indent: 0; text-align: left; margin-bottom: 7pt; }
+
+.toc-page { page: front; break-after: right; }
+h1.toc-title { font-family: "Book"; font-weight: 400; font-size: 20pt; margin: 0.35in 0 16pt; text-align: left; }
+ul.toc { list-style: none; padding: 0; margin: 0; font-size: 10pt; line-height: 1.3; }
+ul.toc li { margin: 0; padding: 0; }
+ul.toc li.toc-part { font-family: "LibreFranklinX"; font-weight: 600; font-size: 6.8pt; letter-spacing: 0.14em; text-transform: uppercase; color: #333; margin-top: 8pt; margin-bottom: 1.5pt; }
+ul.toc li.toc-front, ul.toc li.toc-back { margin-top: 2pt; }
+ul.toc li.toc-back:first-of-type { margin-top: 8pt; }
+ul.toc .toc-num { display: inline-block; width: 1.5em; font-family: "Book"; }
+ul.toc li.toc-front a, ul.toc li.toc-back a { margin-left: 0; }
+ul.toc a::after { content: leader(". ") target-counter(attr(href), page); }
+ul.toc li.toc-front a::after { content: leader(". ") target-counter(attr(href), page, lower-roman); }
+
+section.frontsec { break-before: right; }
+h1.frontmatter { font-family: "Book"; font-weight: 400; font-size: 21pt; margin: 0.55in 0 22pt; line-height: 1.15; }
+section.frontsec { page: frontnum; }
+.labels { margin: 10pt 0 10pt; padding: 8pt 12pt; border-left: 1.2pt solid #555; }
+.labels p { text-indent: 0; margin-bottom: 5pt; font-size: 10.4pt; }
+.labels p strong { font-family: "LibreFranklinX"; font-weight: 600; font-size: 8pt; letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* ---------- Chapter openings ---------- */
+.chapter-open { padding-top: 0.55in; margin-bottom: 22pt; string-set: booktitle "Future-Proof Your Family"; }
+section.chapsec { break-before: page; }
+section.firstsec { break-before: right; }
+.mainmatter { page: main; }
+@page :nth(1 of main) { counter-reset: page 1; }
+.part-kicker { font-family: "LibreFranklinX"; font-weight: 600; font-size: 7pt; letter-spacing: 0.18em; text-transform: uppercase; color: #555; text-indent: 0; text-align: left; margin-bottom: 26pt; }
+.chap-num { font-family: "LibreFranklinX"; font-weight: 600; font-size: 8.2pt; letter-spacing: 0.22em; text-transform: uppercase; text-indent: 0; text-align: left; margin-bottom: 8pt; }
+h1.chapter { font-family: "Book"; font-weight: 400; font-size: 23pt; line-height: 1.12; margin: 0; padding-bottom: 14pt; border-bottom: 0.6pt solid #222; string-set: chaptitle content(); hyphens: manual; }
+section.backsec { break-before: page; }
+h1.backmatter { font-family: "Book"; font-weight: 400; font-size: 21pt; line-height: 1.15; margin: 0.55in 0 20pt; padding-bottom: 12pt; border-bottom: 0.6pt solid #222; string-set: chaptitle content(); }
+
+h2 { font-family: "LibreFranklinX"; font-weight: 600; font-size: 8.6pt; letter-spacing: 0.1em; text-transform: uppercase; margin: 17pt 0 7pt; line-height: 1.3; break-after: avoid; color: #111; hyphens: manual; }
+h3 { font-family: "Book"; font-style: italic; font-weight: 400; font-size: 12pt; margin: 13pt 0 4pt; break-after: avoid; hyphens: manual; }
+
+/* ---------- Lists ---------- */
+ul, ol { margin: 6pt 0 8pt; padding-left: 1.35em; }
+li { margin-bottom: 3pt; text-align: left; }
+li p { text-indent: 0; text-align: left; }
+
+/* ---------- Feature boxes ---------- */
+.action { margin: 18pt 0 4pt; padding: 10pt 12pt 6pt; background: #efefef; break-inside: avoid; font-size: 10.2pt; line-height: 1.36; }
+.action h3 { font-family: "LibreFranklinX"; font-style: normal; font-weight: 700; font-size: 7.6pt; letter-spacing: 0.16em; text-transform: uppercase; margin: 0 0 6pt; }
+.action ol, .action ul { margin: 0 0 4pt; }
+.action li { margin-bottom: 4pt; }
+
+.tag { font-family: "LibreFranklinX"; font-weight: 600; font-size: 6.9pt; letter-spacing: 0.1em; text-transform: uppercase; color: #333; margin-right: 0.35em; }
+
+blockquote { margin: 10pt 0.25in; font-style: italic; }
+blockquote p { text-indent: 0; text-align: left; }
+
+.pull { margin: 12pt 0.2in; text-align: center; font-size: 12.6pt; font-style: italic; line-height: 1.35; }
+.pull p { text-align: center; text-indent: 0; }
+
+/* Checklists */
+.checklist ul { list-style: none; padding-left: 1.4em; }
+.checklist li { position: relative; margin-bottom: 3.5pt; }
+.checklist li::before { content: ""; position: absolute; left: -1.25em; top: 0.22em; width: 0.62em; height: 0.62em; border: 0.7pt solid #222; }
+.checklist { break-inside: auto; }
+
+/* Fill-in lines */
+.blank { display: inline-block; border-bottom: 0.5pt solid #333; min-width: 1.6in; height: 0.9em; }
+
+/* ---------- Tables ---------- */
+table { width: 100%; table-layout: auto; hyphens: manual; border-collapse: collapse; margin: 10pt 0 12pt; font-family: "LibreFranklinX"; font-size: 7.6pt; line-height: 1.32; break-inside: auto; }
+thead { display: table-header-group; }
+tr { break-inside: avoid; }
+th { font-weight: 600; text-align: left; border-bottom: 0.8pt solid #222; padding: 3pt 4pt; vertical-align: bottom; }
+td { border-bottom: 0.4pt solid #bbb; padding: 3pt 4pt; vertical-align: top; text-align: left; }
+td p, th p { text-indent: 0; text-align: left; }
+caption { caption-side: top; font-family: "LibreFranklinX"; font-weight: 600; font-size: 7.4pt; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; margin-bottom: 4pt; }
+
+hr { border: none; text-align: center; margin: 12pt 0; }
+hr::after { content: "* * *"; font-size: 9pt; letter-spacing: 0.4em; }
+
+/* ---------- Back matter ---------- */
+.notes-chapter { font-family: "LibreFranklinX"; font-style: normal; font-weight: 600; font-size: 7.6pt; letter-spacing: 0.08em; text-transform: uppercase; margin: 14pt 0 5pt; }
+.notes ul, .notes-section ul { list-style: none; padding-left: 0; margin: 0; }
+.notes-section { font-size: 8.7pt; line-height: 1.34; }
+.notes-section li { margin-bottom: 4pt; padding-left: 1em; text-indent: -1em; }
+.notes-section p { text-indent: 0; text-align: left; }
+.glossary p { text-indent: 0; margin-bottom: 5pt; text-align: left; }
+.glossary { font-size: 10.2pt; }
+.resources p, .resources li { text-align: left; hyphens: manual; }
+.about p:first-child { text-indent: 0; }
+@page :blank { @top-left { content: none; } @top-right { content: none; } @bottom-left { content: none; } @bottom-right { content: none; } }
+
+.fillin { margin: 10pt 0 12pt; }
+.fillin p { text-align: left; text-indent: 0; margin-bottom: 9pt; }
+.fillin .blank { min-width: 1.8in; }
+h2.lastword { break-before: page; font-family: "Book"; font-weight: 400; font-size: 21pt; letter-spacing: 0; text-transform: none; margin: 0.55in 0 20pt; padding-bottom: 12pt; border-bottom: 0.6pt solid #222; }
