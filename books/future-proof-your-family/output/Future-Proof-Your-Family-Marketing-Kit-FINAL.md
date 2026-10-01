@@ -85,7 +85,7 @@ AI isn't arriving with sirens. It's arriving quietly: through hiring freezes, sm
 
 **Pricing:** Ebook US$7.99 (70% royalty band); launch week US$0.99–2.99. Paperback US$17.99–19.99 (gift price). Enrol ebook in KDP Select for the first 90 days (Kindle Unlimited page reads).
 
-**Interior:** upload `Future-Proof-Your-Family-KDP-6x9-FINAL.pdf` (6×9, no bleed, fonts embedded, 184 pages). Ebook: upload `Future-Proof-Your-Family-FINAL.docx` (or run through Kindle Create).
+**Interior:** upload `Future-Proof-Your-Family-KDP-6x9-LOCKED.pdf` (6×9, no bleed, fonts embedded, 185 pages). Ebook: upload `Future-Proof-Your-Family-MASTER-LOCKED.docx` (or run through Kindle Create).
 
 **Still needed:** cover (not yet created) and ISBN choice (free KDP ISBN is fine).
 
